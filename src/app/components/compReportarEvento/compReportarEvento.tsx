@@ -3,6 +3,8 @@
 import { useState } from "react";
 
 const CompReportarEventos = () => {
+
+    // Formatacao da data do evento
     const [dataEvento, setDataEvento] = useState("");
 
     const formatarData = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +25,7 @@ const CompReportarEventos = () => {
 
             {/* Título principal */}
             <main>
-                <h1 className="my-2 text-center text-3xl md:text-4xl font-bold">Reportar Eventos</h1>
+                <h1 className="my-2 text-center text-3xl md:text-4xl font-bold">Reportar Evento</h1>
                 {/* Formulário para reportar evento */}
                 <section className="flex flex-col items-center p-5 my-5 bg-neutral-400 text-white rounded-lg shadow-md max-w-11/12 mx-auto w-4xl text-center">
                     <form className="w-full max-w-md">
