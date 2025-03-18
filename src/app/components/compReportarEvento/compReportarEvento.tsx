@@ -31,20 +31,20 @@ const CompReportarEventos = () => {
                     <form className="w-full max-w-md">
                         <div className="flex flex-col mb-4">
                             <label htmlFor="titulo-evento" className="mb-2">Título do Evento:</label>
-                            <input type="text" id="titulo-evento" name="titulo-evento" required className="p-2 text-black rounded-md w-3/4 bg-white mx-auto" />
+                            <input type="text" id="titulo-evento" name="titulo-evento" required className="p-2 text-black rounded-md w-11/12 bg-white mx-auto" />
                         </div>
 
                         <div className="flex flex-col mb-4">
                             <label htmlFor="descricao-evento" className="mb-2">Descrição do Evento:</label>
-                            <textarea id="descricao-evento" name="descricao-evento" required className="p-2 text-black rounded-md w-3/4 h-36 resize-none bg-white mx-auto"></textarea>
+                            <textarea id="descricao-evento" name="descricao-evento" required className="p-2 text-black rounded-md w-11/12 h-36 resize-none bg-white mx-auto"></textarea>
                         </div>
 
                         <div className="flex flex-col mb-4">
                             <label htmlFor="data-evento" className="mb-2">Data do Evento (dd/mm/aaaa):</label>
-                            <input type="text" id="data-evento" name="data-evento" required placeholder="dd/mm/aaaa" className="p-2 text-black rounded-md w-3/4 bg-white mx-auto" value={dataEvento} onChange={formatarData} />
+                            <input type="text" id="data-evento" name="data-evento" required placeholder="dd/mm/aaaa" className="p-2 text-black rounded-md w-11/12 bg-white mx-auto" value={dataEvento} onChange={formatarData} />
                         </div>
 
-                        <button type="submit" className="bg-red-700 text-white border border-gray-800 rounded-md px-5 py-3 m-2 text-base cursor-pointer w-64 transition-colors duration-300 hover:bg-red-900 hover:border-gray-600">Enviar</button>
+                        <button type="submit" className="bg-red-700 text-white border border-gray-800 rounded-md px-5 py-3 m-2 text-base cursor-pointer w-64 transition-colors duration-300 hover:bg-red-900 hover:border-gray-60 mx-auto">Enviar</button>
                     </form>
                 </section>
             </main>
