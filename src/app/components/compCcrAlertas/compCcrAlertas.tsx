@@ -26,7 +26,7 @@ const CompReportarEventos = () => {
     useEffect(() => {
         const fetchTiposDeEventos = async () => {
             try {
-                const resposta = await fetch(`${API_BASE}/tipos-evento`, {
+                const resposta = await fetch(`${API_BASE}/reportar-evento`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -38,8 +38,8 @@ const CompReportarEventos = () => {
                     setTiposDeEventos(dados);
                 }
             } catch {
-
             }
+
         };
 
         fetchTiposDeEventos();
@@ -111,8 +111,8 @@ const CompReportarEventos = () => {
                         >
                             <option value="">Selecione um evento</option>
                             {tiposDeEventos.map((evento) => (
-                                <option key={evento.titulo} value={evento.titulo}>
-                                    {evento.titulo.replaceAll("_", " ")}
+                                <option key={evento.type} value={evento.type}>
+                                    {evento.type.replaceAll("_", " ")}
                                 </option>
                             ))}
                         </select>
