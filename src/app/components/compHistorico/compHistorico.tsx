@@ -48,7 +48,9 @@ const CompHistorico = () => {
         if (!cargo) return;
 
         try {
-            const url = `${API_BASE}/historico/${cargo === "Admin" ? "admin" : cargo}`;
+            const isAdmin = cargo?.toLowerCase() === "admin" || cargo?.toLowerCase() === "ti";
+            const url = `${API_BASE}/historico/${isAdmin ? "admin" : cargo}`;
+
             const response = await fetch(url, {
                 headers: getHeaders(),
             });
@@ -60,7 +62,7 @@ const CompHistorico = () => {
             const dadosApi = await response.json();
 
             let eventosFiltrados = dadosApi;
-            if (cargo.toLowerCase() !== "admin") {
+            if (!isAdmin) {
                 const normalize = (str: string) =>
                     str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
@@ -69,12 +71,14 @@ const CompHistorico = () => {
                 );
             }
 
-            setEventos(mapearEventos(eventosFiltrados));
+            const eventosMapeados = mapearEventos(eventosFiltrados);
+            const eventosOrdenados = eventosMapeados.slice().sort((a, b) => b.id - a.id);
+            setEventos(eventosOrdenados);
 
         } catch (error) {
             console.error("Erro ao carregar eventos resolvidos:", error);
         }
-    }, [cargo, router]);
+    }, [cargo]);
 
     useEffect(() => {
         if (cargo) {
@@ -97,6 +101,10 @@ const CompHistorico = () => {
                         eventos.map((evento) => (
                             <div key={evento.id} className="w-full max-w-3xl bg-white text-black p-4 rounded-md shadow-md mb-4">
                                 <h3 className="text-xl font-bold mb-2 text-green-800 ">{evento.titulo}</h3>
+
+                                <h4 className="mb-2">
+                                    <strong>#{evento.id}</strong>
+                                </h4>
                                 <p className="m-2"><strong>Cargo:</strong> {evento.cargo}</p>
                                 <p className="m-2"><strong>Local:</strong> {evento.local}</p>
                                 <p className="m-2"><strong>Descrição:</strong> {evento.descricao}</p>
