@@ -9,6 +9,13 @@ export interface propEventos {
     ajudaSolicitada?: boolean;
 }
 
+export interface propSolicitarAjuda {
+    id: number;
+    type: string;
+    position: string;
+    status: string;
+}
+
 export type TipoDeEvento = {
     type: string;
     cargoResponsavel?: string;
